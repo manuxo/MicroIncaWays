@@ -1,6 +1,5 @@
 package pe.edu.upc.entity;
 
-import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Time;
 import java.util.List;
@@ -20,12 +19,11 @@ import org.hibernate.annotations.Fetch;
 import org.hibernate.annotations.FetchMode;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+
 @Entity
 @Table(name = "vuelo")
-public class Vuelo implements Serializable{
-
-	private static final long serialVersionUID = 1L;
-	
+public class Vuelo{
 	
 	
 	public boolean isComprado() {
@@ -126,10 +124,6 @@ public class Vuelo implements Serializable{
 		this.empresavuelo = empresavuelo;
 	}
 
-	public static long getSerialversionuid() {
-		return serialVersionUID;
-	}
-
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -158,7 +152,7 @@ public class Vuelo implements Serializable{
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	Date fechasalida;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Empresavuelo empresavuelo;
 	
 	@OneToMany(fetch=FetchType.EAGER,cascade=CascadeType.PERSIST,mappedBy="vuelo")
