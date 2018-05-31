@@ -38,7 +38,7 @@ public class Estadia implements Serializable{
 	@NotNull
 	boolean comprado;
 	
-	@ManyToOne(fetch=FetchType.LAZY)
+	@ManyToOne(fetch=FetchType.EAGER)
 	private Empresaestadia empresaestadia;
 
 	@OneToMany(mappedBy="estadia",fetch=FetchType.EAGER,cascade=CascadeType.PERSIST)
