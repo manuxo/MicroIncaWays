@@ -19,7 +19,7 @@ public class VueloService implements IVueloService {
 	
 	@Override
 	@Transactional
-	public void saveVuelo(Vuelo vuelo) {
+	public void save(Vuelo vuelo) {
 		// TODO Auto-generated method stub
 		
 		//REGLA DE NEGOCIO
@@ -30,7 +30,7 @@ public class VueloService implements IVueloService {
 
 	@Override
 	@Transactional
-	public void deleteVuelo(Long id) {
+	public void delete(Long id) {
 		// TODO Auto-generated method stub
 		vs.deleteById(id);
 	}
@@ -60,15 +60,10 @@ public class VueloService implements IVueloService {
 	}
 
 	@Override
+	@Transactional
 	public List<Vuelo> findByOrigenAndDestinoAndFechasalida(String origen, String destino, Date fechasalida) {
 		// TODO Auto-generated method stub
 		return vs.findByOrigenAndDestinoAndFechasalida(origen, destino, fechasalida);
 	}
-
-	@Override
-	public Vuelo findByIdVuelo(Long id) {
-		// TODO Auto-generated method stub
-		return vs.findByIdVuelo(id);
-	}
-
+	
 }

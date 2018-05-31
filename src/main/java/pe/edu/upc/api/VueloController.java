@@ -51,7 +51,7 @@ public class VueloController {
 	@ApiOperation(value = "Agrega un vuelo.")
 	@PostMapping(value="/guardar")
 	public ResponseEntity<String> guardar(@RequestBody Vuelo vuelo,Model model){
-		vueloService.saveVuelo(vuelo);
+		vueloService.save(vuelo);
 		return new ResponseEntity<String>("Vuelo publicado.",HttpStatus.OK);
 	}
 	
@@ -70,14 +70,14 @@ public class VueloController {
 		vueloGuardado.setTarifafc(vuelo.getTarifafc());
 		vueloGuardado.setTarifanino(vuelo.getTarifanino());
 		vueloGuardado.setFechasalida(vuelo.getFechasalida());
-		vueloService.saveVuelo(vueloGuardado);
+		vueloService.save(vueloGuardado);
 		return new ResponseEntity<String>("Vuelo editado.", HttpStatus.OK);
 	}
 	
 	@ApiOperation(value = "Elimina un vuelo.")
 	@DeleteMapping(value="/eliminar/{id}")
 	public ResponseEntity<String> eliminar(@PathVariable Long id,Model model){
-		vueloService.deleteVuelo(id);
+		vueloService.delete(id);
 		return new ResponseEntity<String>("Vuelo eliminado.", HttpStatus.OK);
 	}
 }
