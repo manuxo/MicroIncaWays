@@ -24,7 +24,7 @@ import pe.edu.upc.service.IVueloService;
 
 @Api(value = "IncaWays", description = "Operaciones perteneciente a vuelos en IncaWays.")
 @RestController
-@RequestMapping("/vuelo")
+@RequestMapping("/api/vuelo")
 public class VueloController {
 	
 	@Autowired
